@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------- 主题变量（参考 DeepSeek 问答界面配色） ---------------- */
+:root {
+  --c-canvas: 255 255 255;
+  --c-surface: 255 255 255;
+  --c-sidebar: 249 250 251;
+  --c-hover: 240 242 245;
+  --c-line: 229 231 235;
+  --c-ink: 26 26 26;
+  --c-muted: 107 114 128;
+  --c-faint: 156 163 175;
+  --c-brand: 77 107 254;
+  --c-brand-soft: 238 242 255;
+  --c-bubble: 239 243 255;
+}
+
+.dark {
+  --c-canvas: 33 33 33;
+  --c-surface: 43 43 43;
+  --c-sidebar: 23 23 23;
+  --c-hover: 48 48 48;
+  --c-line: 58 58 58;
+  --c-ink: 236 236 236;
+  --c-muted: 163 163 163;
+  --c-faint: 128 128 128;
+  --c-brand: 77 107 254;
+  --c-brand-soft: 40 46 74;
+  --c-bubble: 48 53 70;
+}
+
+* {
+  border-color: rgb(var(--c-line));
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(var(--c-canvas));
+  color: rgb(var(--c-ink));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------------- 滚动条 ---------------- */
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--c-faint) / 0.45) transparent;
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-thin::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--c-faint) / 0.35);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.scroll-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(var(--c-faint) / 0.6);
+  background-clip: content-box;
+}
+
+/* ---------------- 输入框 ---------------- */
+textarea {
+  field-sizing: content;
+}
+
+/* ---------------- Markdown 正文排版 ---------------- */
+.md-body {
+  font-size: 15px;
+  line-height: 1.8;
+  word-break: break-word;
+}
+
+.md-body > *:first-child {
+  margin-top: 0;
+}
+
+.md-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.md-body p {
+  margin: 0.65em 0;
+}
+
+.md-body h1,
+.md-body h2,
+.md-body h3,
+.md-body h4 {
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 1.3em 0 0.6em;
+}
+
+.md-body h1 {
+  font-size: 1.35em;
+}
+
+.md-body h2 {
+  font-size: 1.2em;
+}
+
+.md-body h3 {
+  font-size: 1.08em;
+}
+
+.md-body ul,
+.md-body ol {
+  margin: 0.65em 0;
+  padding-left: 1.5em;
+}
+
+.md-body ul {
+  list-style: disc;
+}
+
+.md-body ol {
+  list-style: decimal;
+}
+
+.md-body li {
+  margin: 0.3em 0;
+}
+
+.md-body li::marker {
+  color: rgb(var(--c-muted));
+}
+
+.md-body strong {
+  font-weight: 600;
+  color: rgb(var(--c-ink));
+}
+
+.md-body a {
+  color: rgb(var(--c-brand));
+  text-decoration: none;
+}
+
+.md-body a:hover {
+  text-decoration: underline;
+}
+
+.md-body blockquote {
+  margin: 0.9em 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid rgb(var(--c-brand) / 0.5);
+  background: rgb(var(--c-brand-soft) / 0.5);
+  border-radius: 0 8px 8px 0;
+  color: rgb(var(--c-muted));
+}
+
+.md-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: rgb(var(--c-hover));
+  padding: 0.15em 0.4em;
+  border-radius: 5px;
+}
+
+.md-body pre {
+  margin: 0.9em 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  overflow-x: auto;
+  background: rgb(var(--c-hover));
+  border: 1px solid rgb(var(--c-line));
+}
+
+.md-body pre code {
+  background: transparent;
+  padding: 0;
+  font-size: 0.86em;
+  line-height: 1.65;
+}
+
+.md-body table {
+  width: 100%;
+  margin: 0.9em 0;
+  border-collapse: collapse;
+  font-size: 0.94em;
+  display: block;
+  overflow-x: auto;
+}
+
+.md-body th,
+.md-body td {
+  border: 1px solid rgb(var(--c-line));
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.md-body th {
+  background: rgb(var(--c-hover));
+  font-weight: 600;
+}
+
+.md-body hr {
+  margin: 1.4em 0;
+  border: 0;
+  border-top: 1px solid rgb(var(--c-line));
+}
+
+/* 来源片段中的关键词高亮 */
+.kw-mark {
+  background: rgb(var(--c-brand) / 0.14);
+  color: rgb(var(--c-brand));
+  border-radius: 4px;
+  padding: 0 3px;
+  font-weight: 500;
+}
+
+/* 点搜索结果跳过去时，在消息正文里标黄的那个词（见 `lib/highlight.ts`）。
+   ⚠⚠ 名字 `conv-hit` 必须与那个模块里的 `HIGHLIGHT_NAME` **逐字一致** —— 对不上的表现是
+     「滚动到了、但什么都没标黄」，既不报错也无从察觉。
+   ⚠ 属性支持面比 `.kw-mark` **窄得多**：`::highlight()` 只认 color / background-color /
+     text-decoration* / text-shadow，`border-radius` / `padding` / `font-weight` 写了
+     一律**无效且不报错**。所以这里只用得上前两个，配色与 `.kw-mark` 对齐。
+   ⚠ 透明度比 `.kw-mark` 高一点（0.22 vs 0.14）：那边有 padding 撑开面积，
+     这边没有，同一个值会显得偏淡。 */
+::highlight(conv-hit) {
+  background-color: rgb(var(--c-brand) / 0.22);
+  color: rgb(var(--c-brand));
+}

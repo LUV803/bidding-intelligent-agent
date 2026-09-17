@@ -1,0 +1,62 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# 环境变量（含 API Key，切勿提交）
+.env
+.env.local
+.env.bak
+.env.*.local
+
+# 模型缓存与本地索引
+models/
+data/index/
+data/qdrant_local/
+
+# 真实业务数据：涉及真实单位、项目与金额，只留在本机，绝不进版本库。
+# 别人 clone 下来跑 ingest 用 data/sample/ 里的合成样例。
+data/raw/
+data/processed/
+data/eval/
+batch/结果/
+batch/batch_*.jsonl
+
+# 调试临时产物（SSE 抓包、临时请求体等）
+_tmp_*
+
+# 前端
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+node_modules/
+# 每次 npm run build 都重新生成，提交了只会制造噪音
+*.tsbuildinfo
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+
+# 简历 / 答辩材料：不进仓库
+*.pptx
+*.ppt
+docs/面试*
+*简历*
+scripts/make_ppt.py
+
+# 只在本地保留的说明文档（含服务器登录方式 / 自我评估 / 功能提案）
+docs/AutoDL*.md
+docs/项目现状评估与后续建议.md
+增加Agent功能.md
+
+# Claude Code 本机设置（skills/ 照常进仓库）
+.claude/settings.local.json

@@ -1,0 +1,44 @@
+[project]
+name = "bidding-qa-chatbot"
+version = "0.1.0"
+description = "招投标智能问答机器人 — Qdrant 向量 + BM25 混合检索 + DeepSeek 生成 + FastAPI"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "qdrant-client>=1.12.0",
+    "sentence-transformers>=3.3.0",
+    "jieba>=0.42.1",
+    "rank-bm25>=0.2.2",
+    "openai>=1.57.0",
+    "pydantic-settings>=2.6.0",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.3",
+    "numpy>=1.26.0",
+    "httpx>=0.27.2",
+    "zhipuai>=2.1.5.20250825",
+    "neo4j>=6.3.1",
+    "psycopg[binary]>=3.3.5",
+    "zai-sdk>=0.0.3.4",
+    "slowapi>=0.1.10",
+    "mcp>=1.19.0",
+]
+
+[project.scripts]
+bidding-qa = "bidding_qa.__main__:main"
+bidding-qa-ingest = "bidding_qa.ingest:main"
+
+[build-system]
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"
+
+# 国内镜像加速（与 .env 中 hf-mirror / npm npmmirror 保持一致）
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+
+[tool.uv.build-backend]
+module-name = "bidding_qa"
+module-root = "src"
