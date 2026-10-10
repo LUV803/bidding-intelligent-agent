@@ -46,12 +46,7 @@ node_modules/
 Thumbs.db
 *.log
 
-# 简历 / 答辩材料：不进仓库
-*.pptx
-*.ppt
-docs/面试*
-*简历*
-scripts/make_ppt.py
+
 
 # 只在本地保留的说明文档（含服务器登录方式 / 自我评估 / 功能提案）
 docs/AutoDL*.md
