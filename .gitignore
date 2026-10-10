@@ -13,6 +13,7 @@ wheels/
 .env
 .env.local
 .env.bak
+.env.bak*
 .env.*.local
 
 # 模型缓存与本地索引
